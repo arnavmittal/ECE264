@@ -45,7 +45,37 @@ int arrayIsIncreasing(int * array, int len);
  * int x2 = arrayIndexRFind(4, haystack, len); // x2 == 3
  * int x3 = arrayIndexRFind(6, haystack, len); // x3 == -1
  */
+
 int arrayIndexRFind(int needle, const int * haystack, int len);
+{
+    int count;
+    int same=0;
+    int location[20];
+    int vertex=-1;
+    int final=0;
+    for(count = 0; count <= len-1; count++)
+    {
+        if(needle == haystack[count])
+        {
+            same = same + 1;
+            location[++vertex] = count;
+        }
+    }
+    if(same == 0)
+    {
+        final = -1;
+    }
+    else if(same == 1)
+    {
+        final = location[vertex];
+    }
+    else
+    {
+        final = location[vertex];
+    }
+        
+    return(final);
+}
 
 /** Return the _index_ of the smallest element in the array.
  * If there are multiple smallest elements, then return the
@@ -58,5 +88,36 @@ int arrayIndexRFind(int needle, const int * haystack, int len);
  * int ind1 = arrayFindSmallest(array, len); // ind1 == 2
  */
 int arrayFindSmallest(int * array, int len);
+{
+    int index;
+    if(len == 0)
+    {
+        return(0);
+    }
+    for(count = 0; count <= len-1; count++)
+    {
+        if(array[count] <= haystack[count])
+        {
+            same = same + 1;
+            location[++vertex] = count;
+        }
+    }
+    if(same == 0)
+    {
+        final = -1;
+    }
+    else if(same == 1)
+    {
+        final = location[vertex];
+    }
+    else
+    {
+        final = location[vertex];
+    }
+    
+    return(final);
 
+
+    
+}
 #endif
