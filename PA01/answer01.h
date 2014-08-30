@@ -96,10 +96,9 @@ int arrayFindSmallest(int * array, int len);
     }
     for(count = 0; count <= len-1; count++)
     {
-        if(array[count] <= haystack[count])
+        if(array[count] <= array[count+1])
         {
-            same = same + 1;
-            location[++vertex] = count;
+            array[count+1] <= array[count];
         }
     }
     if(same == 0)
