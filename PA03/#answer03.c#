@@ -1,0 +1,95 @@
+#include <stdlib.h>
+#include<string.h>
+#include "answer03.h"
+#include<stdio.h>//REMOVE THIS AT LAST
+
+char * strcat_ex(char * * dest, int * n, const char * src)
+{
+    char * tmp = NULL;
+    int sz = 0; // num bytes required to store the result
+    int dest_len = (*dest == NULL) ? 0:strlen(*dest);
+    int src_len = (src == NULL) ? 0:strlen(src);
+    sz = dest_len + src_len + 1;
+    if(*dest == NULL || sz > *n)
+    {
+        // DRY: Don't Repeat Yourself.
+        *n = (1 + 2 * (dest_len + src_len));
+        tmp = malloc(*n*sizeof(char));
+        *tmp = '\0';
+        if(*dest != NULL)
+        {
+            strcpy(tmp,*dest);
+            free(*dest);
+        }
+        if(src != NULL)
+        {
+            tmp=strcat(tmp,src);
+        }
+        *dest = tmp;
+        return(*dest);
+    }
+    else
+    {
+        strcat(*dest, src);
+        return(*dest);
+    }
+}
+char * * explode(const char * str, const char * delims, int * arrLen)
+{
+    int ind=0;
+    int last=0;
+    int len=0;
+    int arrInd=0;
+    for(ind = 0; ind < strlen(str); ind++)
+    {
+        if (strchr(delims, str[ind]) != NULL)
+        {
+            (*arrLen)++;
+            printf("ARRLEN= %d \n", *arrLen);
+        }
+    }
+    printf ("Got out of loop\n");
+    char * * strArr = malloc((*arrLen+1) * sizeof(char *));
+    printf ("Got past malloc\n");
+    for(ind=0; ind < strlen(str); ind++)
+    {
+        printf ("In 1st for loop\n");
+        if (strchr(delims, str[ind]) != NULL)
+        {
+            printf ("In inner loop\n");
+            len = ind - last;
+            printf("LENGTH = %d \n", len);
+            strArr[arrInd]=malloc((len+1)*sizeof(char));
+            memcpy(strArr[arrInd], &str[last], len);
+            strArr[arrInd][len]='\0';
+            arrInd++;
+            last=ind+1;
+        }
+	printf ("Gets past strchr\n");
+        printf("STRING= %c \n", strArr[arrInd][ind]);
+    }
+    len = ind - last;
+    printf("LENGTH LAST= %d", len);
+    strArr[arrInd]=malloc((len+1)*sizeof(char));
+    memcpy(strArr[arrInd], &str[last], len);
+    strArr[arrInd][len]='\0';
+    arrInd++;
+    last=ind+1;
+    return(strArr);
+}
+char * implode(char * * strArr, int len, const char * glue)
+{
+    return(0);
+}
+void sortStringArray(char * * arrString, int len)
+{
+    return(0);
+}
+void sortStringCharacters(char * str)
+{
+    return(0);
+}
+void destroyStringArray(char * * strArr, int len)
+{
+    return(0);
+}

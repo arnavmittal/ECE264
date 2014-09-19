@@ -1,0 +1,16 @@
+Breakpoint 1 at 0x4006e3: file answer03.c, line 13.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA03/pa03 
+
+Breakpoint 1, strcat_ex (dest=0x7fffffffe2c0, n=0x7fffffffe2bc, 
+    src=0x4008ae "World") at answer03.c:13
+13	        tmp=strcpy(tmp,*dest);
+14	        tmp=strcat(tmp,src);
+$1 = 0x601010 "Hello"
+16	        dest = &tmp;
+17	        return(*dest);
+$2 = 0x601010 "HelloWorld"
+A debugging session is active.
+
+	Inferior 1 [process 669] will be killed.
+
+Quit anyway? (y or n) 

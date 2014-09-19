@@ -1,0 +1,17 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "answer03.h"
+
+int main(int argc, char * * argv)
+{
+    char* dest = "Hello";
+    char * src = "World";
+    int n = 0;
+    strcat_ex( &dest, &n, src);
+    printf("n= %d    dest = %s     src = %s     \n\n",n, dest, src);
+    return EXIT_SUCCESS;
+}
+
+
