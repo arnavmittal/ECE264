@@ -72,23 +72,64 @@ char * implode(char * * strArr, int len, const char * glue)
 {
     char * buffer = NULL;//malloc(len*sizeof(char*));
     int ind = 0;
+    int num = 0;
     for(ind = 0;ind < len-1; ind++)
     {
-        strcat_ex(&buffer, &len, strArr[ind]);
-        strcat_ex(&buffer, &len, glue);
+        strcat_ex(&buffer, &num, strArr[ind]);
+        strcat_ex(&buffer, &num, glue);
     }
-    strcat_ex(&buffer, &len, strArr[ind]);
+    strcat_ex(&buffer, &num, strArr[ind]);
     return(buffer);
 }
+int comparefunc(const void * arg1, const void * arg2)
+{
+    const char * ptr1 = (const char *) arg1;
+    const char * ptr2 = (const char *) arg2;
+    const char val1 = * ptr1;
+    const char val2 = * ptr2;
+    if (val1 < val2)
+    {
+        return -1;
+    }
+    if (val1 == val2)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+int comparefunc2(const void * arg1, const void * arg2)
+{
+    int cmp=0;
+    const char ** arg11 = (const char **) arg1;
+    const char ** arg22 = (const char **) arg2;
+    cmp = strcmp(*arg11, *arg22);
+    return(cmp);
+}
+
 void sortStringArray(char * * arrString, int len)
 {
-    return(0);
+    if(arrString != NULL)
+    {
+        qsort(arrString, len, sizeof(char*), comparefunc2);
+    }
 }
 void sortStringCharacters(char * str)
 {
-    return(0);
+    if(str != NULL)
+    {
+        qsort(str, strlen(str), sizeof(char), comparefunc);
+    }
 }
 void destroyStringArray(char * * strArr, int len)
 {
-    return(0);
+    int ind=0;
+    if(strArr != NULL)
+    {
+        for(ind=0; ind < len; ind++)
+        {
+            free(strArr[ind]);
+        }
+    }
+    free(strArr);
 }
