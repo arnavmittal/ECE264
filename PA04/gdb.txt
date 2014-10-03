@@ -1,0 +1,318 @@
+No source file named echo-lite.c.
+Make breakpoint pending on future shared library load? (y or [n]) Breakpoint 1 at 0x4007ca: file cat-lite.c, line 10.
+Breakpoint 2 at 0x40085e: file cat-lite.c, line 35.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:10
+10	  for(ind = 1 ; ind < argc; ++ind)
+$1 = 1
+$2 = 0
+19	  for(ind=1; ind<argc; ind++)
+45	    if(argc == 1)
+47	        while(!feof(stdin))
+$3 = (char **) 0x7fffffffe3b8
+$4 = 0x7fffffffe618 "/home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite"
+Cannot access memory at address 0x1
+_IO_feof (fp=0x3f7a18e6c0) at feof.c:37
+37	  _IO_flockfile (fp);
+32	_IO_feof (fp)
+33	     _IO_FILE* fp;
+34	{
+35	  int result;
+36	  CHECK_FILE (fp, EOF);
+37	  _IO_flockfile (fp);
+38	  result = _IO_feof_unlocked (fp);
+39	  _IO_funlockfile (fp);
+40	  return result;
+41	}
+Continuing.
+
+Program received signal SIGINT, Interrupt.
+0x0000003f79edb430 in __read_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:82
+82	T_PSEUDO (SYSCALL_SYMBOL, SYSCALL_NAME, SYSCALL_NARGS)
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:10
+10	  for(ind = 1 ; ind < argc; ++ind)
+19	  for(ind=1; ind<argc; ind++)
+45	    if(argc == 1)
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+$5 = 58
+$6 = 58
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+50	            if(ch != EOF)
+52	                fprintf(stdout,"%c", ch);
+47	        while(!feof(stdin))
+49	            int ch = fgetc(stdin);
+$7 = 10
+$8 = 1
+$9 = (struct _IO_FILE *) 0x3f7a18e7a0
+The program being debugged has been started already.
+Start it from the beginning? (y or n) Program not restarted.
+Continuing.
+
+Program received signal SIGINT, Interrupt.
+0x0000003f79edb430 in __read_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:82
+82	T_PSEUDO (SYSCALL_SYMBOL, SYSCALL_NAME, SYSCALL_NARGS)
+Breakpoint 3 at 0x3f79edb430: file ../sysdeps/unix/syscall-template.S, line 82.
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite 
+Warning:
+Cannot insert breakpoint 3.
+Error accessing memory address 0x3f79edb430: Input/output error.
+
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite 
+Warning:
+Cannot insert breakpoint 3.
+Error accessing memory address 0x3f79edb430: Input/output error.
+
+Undefined info command: "brek".  Try "help info".
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000004007ca in main at cat-lite.c:10
+2       breakpoint     keep y   0x000000000040085e in main at cat-lite.c:35
+3       breakpoint     keep y   0x0000003f79edb430 
+Num     Type           Disp Enb Address            What
+2       breakpoint     keep y   0x000000000040085e in main at cat-lite.c:35
+3       breakpoint     keep y   0x0000003f79edb430 
+Delete all breakpoints? (y or n) No breakpoints or watchpoints.
+Breakpoint 4 at 0x4007c3: file cat-lite.c, line 9.
+Breakpoint 5 at 0x400832: file cat-lite.c, line 20.
+Breakpoint 6 at 0x4008d9: file cat-lite.c, line 40.
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA04/cat-lite 
+
+Breakpoint 4, main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:9
+9	  int ind = 0;
+1: ind = 0
+10	  for(ind = 1 ; ind < argc; ++ind)
+1: ind = 0
+19	  for(ind=1; ind<argc; ind++)
+1: ind = 1
+45	    if(argc == 1)
+1: ind = 1
+47	        while(!feof(stdin))
+1: ind = 1
+_IO_feof (fp=0x3f7a18e6c0) at feof.c:37
+37	  _IO_flockfile (fp);
+34	{
+37	  _IO_flockfile (fp);
+38	  result = _IO_feof_unlocked (fp);
+39	  _IO_funlockfile (fp);
+41	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:49
+49	            int ch = fgetc(stdin);
+1: ind = 1
+_IO_getc (fp=0x3f7a18e6c0) at getc.c:37
+37	{
+40	  _IO_acquire_lock (fp);
+37	{
+40	  _IO_acquire_lock (fp);
+41	  result = _IO_getc_unlocked (fp);
+40	  _IO_acquire_lock (fp);
+44	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:50
+50	            if(ch != EOF)
+1: ind = 1
+52	                fprintf(stdout,"%c", ch);
+1: ind = 1
+47	        while(!feof(stdin))
+1: ind = 1
+_IO_feof (fp=0x3f7a18e6c0) at feof.c:37
+37	  _IO_flockfile (fp);
+34	{
+37	  _IO_flockfile (fp);
+38	  result = _IO_feof_unlocked (fp);
+39	  _IO_funlockfile (fp);
+41	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:49
+49	            int ch = fgetc(stdin);
+1: ind = 1
+_IO_getc (fp=0x3f7a18e6c0) at getc.c:37
+37	{
+40	  _IO_acquire_lock (fp);
+37	{
+40	  _IO_acquire_lock (fp);
+41	  result = _IO_getc_unlocked (fp);
+40	  _IO_acquire_lock (fp);
+_IO_acquire_lock_fct (fp=0x3f7a18e6c0) at libioP.h:968
+968	  if ((fp->_flags & _IO_USER_LOCK) == 0)
+969	    _IO_funlockfile (fp);
+_IO_getc (fp=0x3f7a18e6c0) at getc.c:44
+44	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:50
+50	            if(ch != EOF)
+1: ind = 1
+52	                fprintf(stdout,"%c", ch);
+1: ind = 1
+fputc (c=10, fp=0x3f7a18e7a0) at fputc.c:35
+35	{
+38	  _IO_acquire_lock (fp);
+35	{
+38	  _IO_acquire_lock (fp);
+39	  result = _IO_putc_unlocked (c, fp);
+__overflow (f=0x3f7a18e7a0, ch=10) at genops.c:246
+246	  if (f->_mode == 0)
+248	  return _IO_OVERFLOW (f, ch);
+_IO_new_file_overflow (f=0x3f7a18e7a0, ch=10) at fileops.c:829
+829	{
+830	  if (f->_flags & _IO_NO_WRITES) /* SET ERROR */
+829	{
+830	  if (f->_flags & _IO_NO_WRITES) /* SET ERROR */
+837	  if ((f->_flags & _IO_CURRENTLY_PUTTING) == 0 || f->_IO_write_base == NULL)
+872	  if (ch == EOF)
+875	  if (f->_IO_write_ptr == f->_IO_buf_end ) /* Buffer is really full */
+878	  *f->_IO_write_ptr++ = ch;
+879	  if ((f->_flags & _IO_UNBUFFERED)
+878	  *f->_IO_write_ptr++ = ch;
+879	  if ((f->_flags & _IO_UNBUFFERED)
+882				      f->_IO_write_ptr - f->_IO_write_base) == EOF)
+881	    if (INTUSE(_IO_do_write) (f, f->_IO_write_base,
+884	  return (unsigned char) ch;
+885	}
+fputc (c=<value optimized out>, fp=0x3f7a18e7a0) at fputc.c:38
+38	  _IO_acquire_lock (fp);
+42	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:47
+47	        while(!feof(stdin))
+1: ind = 1
+49	            int ch = fgetc(stdin);
+1: ind = 1
+50	            if(ch != EOF)
+1: ind = 1
+52	                fprintf(stdout,"%c", ch);
+1: ind = 1
+47	        while(!feof(stdin))
+1: ind = 1
+49	            int ch = fgetc(stdin);
+1: ind = 1
+_IO_getc (fp=0x3f7a18e6c0) at getc.c:37
+37	{
+40	  _IO_acquire_lock (fp);
+37	{
+40	  _IO_acquire_lock (fp);
+41	  result = _IO_getc_unlocked (fp);
+40	  _IO_acquire_lock (fp);
+_IO_acquire_lock_fct (fp=0x3f7a18e6c0) at libioP.h:968
+968	  if ((fp->_flags & _IO_USER_LOCK) == 0)
+969	    _IO_funlockfile (fp);
+_IO_getc (fp=0x3f7a18e6c0) at getc.c:44
+44	}
+main (argc=1, argv=0x7fffffffe3b8) at cat-lite.c:50
+50	            if(ch != EOF)
+1: ind = 1
+52	                fprintf(stdout,"%c", ch);
+1: ind = 1
+fputc (c=10, fp=0x3f7a18e7a0) at fputc.c:35
+35	{
+38	  _IO_acquire_lock (fp);
+35	{
+38	  _IO_acquire_lock (fp);
+39	  result = _IO_putc_unlocked (c, fp);
+__overflow (f=0x3f7a18e7a0, ch=10) at genops.c:246
+246	  if (f->_mode == 0)
+248	  return _IO_OVERFLOW (f, ch);
+_IO_new_file_overflow (f=0x3f7a18e7a0, ch=10) at fileops.c:829
+829	{
+830	  if (f->_flags & _IO_NO_WRITES) /* SET ERROR */
+829	{
+830	  if (f->_flags & _IO_NO_WRITES) /* SET ERROR */
+837	  if ((f->_flags & _IO_CURRENTLY_PUTTING) == 0 || f->_IO_write_base == NULL)
+872	  if (ch == EOF)
+875	  if (f->_IO_write_ptr == f->_IO_buf_end ) /* Buffer is really full */
+878	  *f->_IO_write_ptr++ = ch;
+879	  if ((f->_flags & _IO_UNBUFFERED)
+878	  *f->_IO_write_ptr++ = ch;
+879	  if ((f->_flags & _IO_UNBUFFERED)
+882				      f->_IO_write_ptr - f->_IO_write_base) == EOF)
+881	    if (INTUSE(_IO_do_write) (f, f->_IO_write_base,
+_IO_new_do_write (fp=0x3f7a18e7a0, data=0x7ffff7ffb000 "n\n", to_do=2)
+    at fileops.c:493
+493	{
+494	  return (to_do == 0
+493	{
+494	  return (to_do == 0
+495		  || (_IO_size_t) new_do_write (fp, data, to_do) == to_do) ? 0 : EOF;
+new_do_write (fp=0x3f7a18e7a0, data=0x7ffff7ffb000 "n\n", to_do=2)
+    at fileops.c:507
+507	  if (fp->_flags & _IO_IS_APPENDING)
+514	  else if (fp->_IO_read_end != fp->_IO_write_base)
+522	  count = _IO_SYSWRITE (fp, data, to_do);
+_IO_new_file_write (f=0x3f7a18e7a0, data=0x7ffff7ffb000, n=2) at fileops.c:1261
+1261	{
+1263	  while (to_do > 0)
+1261	{
+1263	  while (to_do > 0)
+1261	{
+1263	  while (to_do > 0)
+1265	      _IO_ssize_t count = (__builtin_expect (f->_flags2
+1268				   : write (f->_fileno, data, to_do));
+write () at ../sysdeps/unix/syscall-template.S:82
+82	T_PSEUDO (SYSCALL_SYMBOL, SYSCALL_NAME, SYSCALL_NARGS)
+_IO_new_file_write (f=0x3f7a18e7a0, data=<value optimized out>, n=2)
+    at fileops.c:1269
+1269	      if (count < 0)
+1274	      to_do -= count;
+1263	  while (to_do > 0)
+1275	      data = (void *) ((char *) data + count);
+1278	  if (f->_offset >= 0)
+1281	}
+new_do_write (fp=0x3f7a18e7a0, data=0x7ffff7ffb000 "n\n", to_do=2)
+    at fileops.c:523
+523	  if (fp->_cur_column && count)
+522	  count = _IO_SYSWRITE (fp, data, to_do);
+523	  if (fp->_cur_column && count)
+528	  fp->_IO_write_end = (fp->_mode <= 0
+526	  _IO_setg (fp, fp->_IO_buf_base, fp->_IO_buf_base, fp->_IO_buf_base);
+528	  fp->_IO_write_end = (fp->_mode <= 0
+526	  _IO_setg (fp, fp->_IO_buf_base, fp->_IO_buf_base, fp->_IO_buf_base);
+527	  fp->_IO_write_base = fp->_IO_write_ptr = fp->_IO_buf_base;
+528	  fp->_IO_write_end = (fp->_mode <= 0
+_IO_new_do_write (fp=0x3f7a18e7a0, data=0x7ffff7ffb000 "n\n", to_do=2)
+    at fileops.c:494
+494	  return (to_do == 0
+495		  || (_IO_size_t) new_do_write (fp, data, to_do) == to_do) ? 0 : EOF;
+494	  return (to_do == 0
+496	}
+Continuing.
+
+Program received signal SIGINT, Interrupt.
+0x0000003f79edb430 in __read_nocancel ()
+    at ../sysdeps/unix/syscall-template.S:82
+82	T_PSEUDO (SYSCALL_SYMBOL, SYSCALL_NAME, SYSCALL_NARGS)
+A debugging session is active.
+
+	Inferior 1 [process 8808] will be killed.
+
+Quit anyway? (y or n) 
