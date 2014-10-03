@@ -1,0 +1,37 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main(int argc, char * * argv)
+{
+  int ind = 0;
+  for(ind = 1 ; ind < argc; ++ind) 
+    {
+      if(strcmp(argv[ind], "--help") == 0)
+	{
+	  printf("Usage: cat-lite [--help] [FILE]...\nWith no FILE, or when FILE is -, read standard input.\n\nExamples:\n  cat-lite README   Print the file README to standard output.\n  cat-lite f - g    Print f's contents, then standard input, \n                    then g's contents.\n  cat-lite          Copy standard input to standard output."); 
+	  printf("\n");	
+	  return EXIT_SUCCESS;
+	}
+    }
+  for(ind=1; ind<argc; ind++)
+    {
+      FILE * fptr;
+      fptr = fopen(argv[ind], "r");
+      if(fptr == NULL)
+	{
+	  printf("cat cannot open %s \n", argv[ind]);
+	  return EXIT_FAILURE;
+	}
+      int ch = fgetc(fptr);
+      if(ch != EOF)
+	{
+	  printf("%c", ch);
+	}
+      fclose(fptr);
+      return EXIT_SUCCESS;
+    }
+  return EXIT_SUCCESS;
+}
