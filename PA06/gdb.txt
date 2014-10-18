@@ -1,0 +1,42 @@
+Breakpoint 1 at 0x400af9: file pa06.c, line 5.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA06/pa06 sample.2.9x7
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffe3a8) at pa06.c:21
+21		FILE* input = (argc == 1 ? stdin : fopen(argv[1], "r"));
+24		char* maze[MAX_H] = {NULL};
+25		int w=0, h=0;
+26		read_and_alloc_maze(maze, input, &w, &h);
+27		fclose(input);
+30		if(h < 3 || w < 3) {
+37		print_directions(maze, w, h);
+print_directions (maze=0x7fffffffdf80, w=9, h=7) at answer06.c:86
+86	    int x = 0;
+87	    int y = getstart (maze, w, h);
+89	    recursion(maze, w, h, x, y, 1, 0);
+recursion (maze=0x7fffffffdf80, w=9, h=7, x=0, y=5, deltax=1, deltay=0)
+    at answer06.c:40
+40	    while(maze[x][y] != WALL)
+42	        numstep ++;
+43	        x += deltax;
+44	        y += deltay;
+45	        maze[x][y] = '.';
+48	        int east = (maze[x][y+1] == SPACE);
+49	        int west = (maze[x][y-1] == SPACE);
+50	        int north = (maze[x-1][y] == SPACE);
+51	        int south = (maze[x+1][y] == SPACE);
+53	        if(east | west | south | north)
+55	            print_path(deltax, deltay, numstep);
+56	            print_path(-deltax, -deltay, numstep);
+60	        if(east + west + south + north >= 1)
+63	            if(east)
+65	                recursion(maze,w,h,x,y,0,1);
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000000004008e9 in recursion (maze=0x7fffffffdf80, w=9, h=7, x=0, y=113, 
+    deltax=-1, deltay=0) at answer06.c:50
+50	        int north = (maze[x-1][y] == SPACE);
+A debugging session is active.
+
+	Inferior 1 [process 5097] will be killed.
+
+Quit anyway? (y or n) 
