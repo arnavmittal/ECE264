@@ -19,10 +19,10 @@ int getstart(char **maze, int w , int h)
     }
     return(-1);
 }
-void recursion(char** maze, int w, int h, int x, int y, char direction)
+void recursion(char** maze, int w, int h, int x, int y, char direction, int dir,int tdir)
 {
-    int dir = 1;
-    int tdir = 1;
+    //int dir = 1;
+    //int tdir = 1;
     
     if(direction == 'S'){
         //int dir = 1;
@@ -38,7 +38,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'E';
                     //dir = 0;
-                    recursion(maze, w, h, x, y+1, 'E');
+                    recursion(maze, w, h, x, y+1, 'E',1,1);
                     dir = 0;
                 }
             }
@@ -51,7 +51,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'W';
                     //dir = 0;
-                    recursion(maze, w, h, x, y-1, 'W');
+                    recursion(maze, w, h, x, y-1, 'W',1,1);
                     dir = 0;
                 }
             }
@@ -78,7 +78,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'E';
                     //dir = 0;
-                    recursion(maze, w, h, x, y+1, 'E');
+                    recursion(maze, w, h, x, y+1, 'E',1,1);
                     dir = 0;
                 }
             }
@@ -92,7 +92,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'W';
                     //dir = 0;
-                    recursion(maze, w, h, x, y-1, 'W');
+                    recursion(maze, w, h, x, y-1, 'W',1,1);
                     dir = 0;
                 }
             }
@@ -121,7 +121,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'E';
                     //dir = 0;
-                    recursion(maze, w, h, x+1, y, 'S');
+                    recursion(maze, w, h, x+1, y, 'S',1,1);
                     dir = 0;
                 }
             }
@@ -134,7 +134,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'W';
                     //dir = 0;
-                    recursion(maze, w, h, x-1, y, 'N');
+                    recursion(maze, w, h, x-1, y, 'N',1,1);
                     dir = 0;
                 }
             }
@@ -162,7 +162,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'E';
                     //dir = 0;
-                    recursion(maze, w, h, x + 1, y, 'S');
+                    recursion(maze, w, h, x + 1, y, 'S',1,1);
                     dir = 0;
                 }
             }
@@ -175,7 +175,7 @@ void recursion(char** maze, int w, int h, int x, int y, char direction)
                     
                     //direction = 'W';
                     //dir = 0;
-                    recursion(maze, w, h, x-1, y, 'N');
+                    recursion(maze, w, h, x-1, y, 'N',1,1);
                     dir = 0;
                 }
             }
@@ -198,5 +198,5 @@ void print_directions(char** maze, int w, int h)
     //int dir = 1;
     //int sumdir = 1;
     
-    recursion(maze, w, h, x, y,'S');
+    recursion(maze, w, h, x, y,'S',1,1);
 }
