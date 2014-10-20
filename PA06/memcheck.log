@@ -1,0 +1,85 @@
+==12995== Memcheck, a memory error detector
+==12995== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==12995== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==12995== Command: ./pa06
+==12995== Parent PID: 4326
+==12995== 
+--12995-- 
+--12995-- Valgrind options:
+--12995--    --tool=memcheck
+--12995--    --leak-check=full
+--12995--    --verbose
+--12995--    --log-file=memcheck.log
+--12995-- Contents of /proc/version:
+--12995--   Linux version 2.6.32-431.29.2.el6.x86_64 (mockbuild@x86-026.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Sun Jul 27 15:55:46 EDT 2014
+--12995-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--12995-- Page sizes: currently 4096, max supported 4096
+--12995-- Valgrind library directory: /usr/lib64/valgrind
+--12995-- Reading syms from /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA06/pa06
+--12995-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--12995--    object doesn't have a dynamic symbol table
+--12995-- Reading syms from /lib64/ld-2.12.so
+--12995--   Considering /usr/lib/debug/.build-id/3b/fa45bce0e82e1d90d37a0cc8630f97f2003bf5.debug ..
+--12995--   .. build-id is valid
+--12995-- Scheduler: using generic scheduler lock implementation.
+--12995-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==12995== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-12995-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==12995== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-12995-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==12995== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-12995-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==12995== 
+==12995== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==12995== don't want to do, unless you know exactly what you're doing,
+==12995== or are doing some strange experiment):
+==12995==   /usr/lib64/valgrind/../../bin/vgdb --pid=12995 ...command...
+==12995== 
+==12995== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==12995==   /path/to/gdb ./pa06
+==12995== and then give GDB the following command
+==12995==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=12995
+==12995== --pid is optional if only one valgrind process is running
+==12995== 
+--12995-- REDIR: 0x35ff417610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--12995-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--12995-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--12995-- REDIR: 0x35ff417480 (index) redirected to 0x4a07c30 (index)
+--12995-- REDIR: 0x35ff417500 (strcmp) redirected to 0x4a08570 (strcmp)
+--12995-- Reading syms from /lib64/libc-2.12.so
+--12995--   Considering /usr/lib/debug/.build-id/73/3ad3a438b5a695f7a63a77413f9b2c8c94e8e6.debug ..
+--12995--   .. build-id is valid
+--12995-- REDIR: 0x35ff884cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--12995-- REDIR: 0x35ff886f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--12995-- REDIR: 0x35ff882c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--12995-- REDIR: 0x35ff87a640 (malloc) redirected to 0x4a069ac (malloc)
+==12995== 
+==12995== Process terminating with default action of signal 2 (SIGINT)
+==12995==    at 0x35FF8DB5A0: __read_nocancel (syscall-template.S:82)
+==12995==    by 0x35FF871CE7: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:598)
+==12995==    by 0x35FF8737ED: _IO_default_uflow (genops.c:440)
+==12995==    by 0x35FF867EC9: _IO_getline_info (iogetline.c:74)
+==12995==    by 0x35FF866D28: fgets (iofgets.c:58)
+==12995==    by 0x400D5E: read_and_alloc_maze (pa06.c:64)
+==12995==    by 0x400BFE: main (pa06.c:26)
+--12995-- REDIR: 0x35ff87b520 (free) redirected to 0x4a063a9 (free)
+==12995== 
+==12995== HEAP SUMMARY:
+==12995==     in use at exit: 102 bytes in 1 blocks
+==12995==   total heap usage: 1 allocs, 0 frees, 102 bytes allocated
+==12995== 
+==12995== Searching for pointers to 1 not-freed blocks
+==12995== Checked 69,984 bytes
+==12995== 
+==12995== LEAK SUMMARY:
+==12995==    definitely lost: 0 bytes in 0 blocks
+==12995==    indirectly lost: 0 bytes in 0 blocks
+==12995==      possibly lost: 0 bytes in 0 blocks
+==12995==    still reachable: 102 bytes in 1 blocks
+==12995==         suppressed: 0 bytes in 0 blocks
+==12995== Reachable blocks (those to which a pointer was found) are not shown.
+==12995== To see them, rerun with: --leak-check=full --show-reachable=yes
+==12995== 
+==12995== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--12995-- 
+--12995-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--12995-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==12995== 
+==12995== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

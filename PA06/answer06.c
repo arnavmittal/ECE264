@@ -1,26 +1,11 @@
 #include "answer06.h"
 #include <stdio.h>
+//#include <stdlib.h>
 
-void print_path(int deltax, int deltay, int numstep)
+void print_path(int numstep, char direction)
 {
-    char dir;
-    if( deltax == 1)
-    {
-        dir = 'S';
-    }
-    if( deltax == -1)
-    {
-        dir = 'N';
-    }
-    if( deltay == 1)
-    {
-        dir = 'E';
-    }
-    if( deltay == -1)
-    {
-        dir = 'W';
-    }
-    printf("%c %d", dir, numstep);
+    printf("%c %d", direction, numstep);
+    printf("\n");
 }
 int getstart(char **maze, int w , int h)
 {
@@ -32,59 +17,186 @@ int getstart(char **maze, int w , int h)
             return(ind);
         }
     }
-    return(0);
+    return(-1);
 }
-void recursion(char ** maze, int w, int h, int x, int y, int deltax, int deltay)
+void recursion(char** maze, int w, int h, int x, int y, char direction)
 {
-    int numstep;
-    while(maze[x][y] != WALL)
-    {
-        numstep ++;
-        x += deltax;
-        y += deltay;
-        maze[x][y] = '.';
-        
-        //Checking for deadend and direction
-        int east = (maze[x][y+1] == SPACE);
-        int west = (maze[x][y-1] == SPACE);
-        int north = (maze[x-1][y] == SPACE);
-        int south = (maze[x+1][y] == SPACE);
-        
-        if(east | west | south | north)
+    int dir = 1;
+    int tdir = 1;
+    
+    if(direction == 'S'){
+        //int dir = 1;
+        //int tdir = 1;
+        while(x<h && maze[x][y] != WALL)
         {
-            print_path(deltax, deltay, numstep);
-            print_path(-deltax, -deltay, numstep);
+            if(y+1 < w){
+                if(maze[x][y+1] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'E';
+                    //dir = 0;
+                    recursion(maze, w, h, x, y+1, 'E');
+                    dir = 0;
+                }
+            }
+            if(y-1 > -1){
+                if(maze[x][y-1] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'W';
+                    //dir = 0;
+                    recursion(maze, w, h, x, y-1, 'W');
+                    dir = 0;
+                }
+            }
+            x++;
+            dir++;
+            tdir++;
         }
-        
-        //Checking for a junction
-        if(east + west + south + north >= 1)
-        {
-            //print forward;
-            if(east)
-            {
-                recursion(maze,w,h,x,y,0,1);
-            }
-            if(west)
-            {
-                recursion(maze,w,h,x,y,0,-1);
-            }
-            if(north)
-            {
-                recursion(maze,w,h,x,y,-1,0);
-            }
-            if(south)
-            {
-                recursion(maze,w,h,x,y,1,0);
-            }
+        if(dir - 1 != 0){
+            print_path(dir - 1, direction);
         }
+        print_path(tdir - 1, 'N');
     }
-    print_path(-deltax, -deltay, numstep);
+    if(direction == 'N'){
+        //int dir = 1;
+        //int tdir = 1;
+        while(x>(-1) && maze[x][y] != WALL)
+        {
+            if(y+1 < w){
+                if(maze[x][y+1] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'E';
+                    //dir = 0;
+                    recursion(maze, w, h, x, y+1, 'E');
+                    dir = 0;
+                }
+            }
+            if(y-1 > -1){
+                if(maze[x][y-1] == SPACE)
+                {
+                    if(dir != 0){
+                        //printf("foo");
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'W';
+                    //dir = 0;
+                    recursion(maze, w, h, x, y-1, 'W');
+                    dir = 0;
+                }
+            }
+            x--;
+            dir++;
+            tdir++;
+        }
+        //printf("foo");
+        if(dir - 1 != 0){
+            print_path(dir - 1, direction);
+        }
+        print_path(tdir - 1, 'S');
+    }
+    
+    if(direction == 'W'){
+        //int dir = 1;
+        //int tdir = 1;
+        while(y>(-1) && maze[x][y] != WALL)
+        {
+            if(x+1 < h){
+                if(maze[x+1][y] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'E';
+                    //dir = 0;
+                    recursion(maze, w, h, x+1, y, 'S');
+                    dir = 0;
+                }
+            }
+            if(x-1 > -1){
+                if(maze[x-1][y] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'W';
+                    //dir = 0;
+                    recursion(maze, w, h, x-1, y, 'N');
+                    dir = 0;
+                }
+            }
+            y--;
+            dir++;
+            tdir++;
+        }
+        if(dir - 1 != 0){
+            print_path(dir - 1, direction);
+        }
+        print_path(tdir - 1, 'E');
+    }
+    
+    if(direction == 'E'){
+        //int dir = 1;
+        //int tdir = 1;
+        while(y<w && maze[x][y] != WALL)
+        {
+            if(x+1 < h){
+                if(maze[x+1][y] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'E';
+                    //dir = 0;
+                    recursion(maze, w, h, x + 1, y, 'S');
+                    dir = 0;
+                }
+            }
+            if(x-1 > -1){
+                if(maze[x-1][y] == SPACE)
+                {
+                    if(dir != 0){
+                        print_path(dir, direction);
+                    }
+                    
+                    //direction = 'W';
+                    //dir = 0;
+                    recursion(maze, w, h, x-1, y, 'N');
+                    dir = 0;
+                }
+            }
+            y++;
+            dir++;
+            tdir++;
+        }
+        if(dir - 1 != 0){
+            print_path(dir - 1, direction);
+        }
+        print_path(tdir - 1, 'W');
+    }
     
 }
 void print_directions(char** maze, int w, int h)
 {
-    int x = 0;
+    int x = 1;
     int y = getstart (maze, w, h);
+    //y = (w+1)/2;
+    //int dir = 1;
+    //int sumdir = 1;
     
-    recursion(maze, w, h, x, y, 1, 0);
+    recursion(maze, w, h, x, y,'S');
 }
