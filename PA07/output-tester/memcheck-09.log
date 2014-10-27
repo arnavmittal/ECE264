@@ -1,74 +1,74 @@
-==15435== Memcheck, a memory error detector
-==15435== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
-==15435== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
-==15435== Command: ./a.out images/bmps/05-sagan-stamp.bmp student-out-09_05-sagan-stamp.ee264
-==15435== Parent PID: 15433
-==15435== 
---15435-- 
---15435-- Valgrind options:
---15435--    --tool=memcheck
---15435--    --leak-check=full
---15435--    --verbose
---15435--    --log-file=memcheck-09.log
---15435-- Contents of /proc/version:
---15435--   Linux version 2.6.32-431.29.2.el6.x86_64 (mockbuild@x86-026.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Sun Jul 27 15:55:46 EDT 2014
---15435-- Arch and hwcaps: AMD64, amd64-sse3-cx16
---15435-- Page sizes: currently 4096, max supported 4096
---15435-- Valgrind library directory: /usr/lib64/valgrind
---15435-- Reading syms from /tmp/.iYWO1V/a.out
---15435-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
---15435--    object doesn't have a dynamic symbol table
---15435-- Reading syms from /lib64/ld-2.12.so
---15435--   Considering /usr/lib/debug/.build-id/3b/fa45bce0e82e1d90d37a0cc8630f97f2003bf5.debug ..
---15435--   .. build-id is valid
---15435-- Scheduler: using generic scheduler lock implementation.
---15435-- Reading suppressions file: /usr/lib64/valgrind/default.supp
-==15435== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-15435-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
-==15435== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-15435-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
-==15435== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-15435-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
-==15435== 
-==15435== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==15435== don't want to do, unless you know exactly what you're doing,
-==15435== or are doing some strange experiment):
-==15435==   /usr/lib64/valgrind/../../bin/vgdb --pid=15435 ...command...
-==15435== 
-==15435== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==15435==   /path/to/gdb ./a.out
-==15435== and then give GDB the following command
-==15435==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=15435
-==15435== --pid is optional if only one valgrind process is running
-==15435== 
---15435-- REDIR: 0x35ff417610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
---15435-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
---15435-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
---15435-- REDIR: 0x35ff417480 (index) redirected to 0x4a07c30 (index)
---15435-- REDIR: 0x35ff417500 (strcmp) redirected to 0x4a08570 (strcmp)
---15435-- Reading syms from /lib64/libc-2.12.so
---15435--   Considering /usr/lib/debug/.build-id/73/3ad3a438b5a695f7a63a77413f9b2c8c94e8e6.debug ..
---15435--   .. build-id is valid
---15435-- REDIR: 0x35ff884cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---15435-- REDIR: 0x35ff886f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---15435-- REDIR: 0x35ff882c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
---15435-- REDIR: 0x35ff87f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---15435-- REDIR: 0x35ff928420 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
---15435-- REDIR: 0x35ff881120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
---15435-- REDIR: 0x35ff9336f0 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
---15435-- REDIR: 0x35ff88aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
---15435-- REDIR: 0x35ff884500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
---15435-- REDIR: 0x35ff87b520 (free) redirected to 0x4a063a9 (free)
---15435-- REDIR: 0x35ff87a640 (malloc) redirected to 0x4a069ac (malloc)
---15435-- REDIR: 0x35ff889670 (memcpy) redirected to 0x4a08b60 (memcpy)
---15435-- REDIR: 0x35ff881160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
-==15435== 
-==15435== HEAP SUMMARY:
-==15435==     in use at exit: 0 bytes in 0 blocks
-==15435==   total heap usage: 7 allocs, 7 frees, 309,372 bytes allocated
-==15435== 
-==15435== All heap blocks were freed -- no leaks are possible
-==15435== 
-==15435== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
---15435-- 
---15435-- used_suppression:      4 U1004-ARM-_dl_relocate_object
---15435-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
-==15435== 
-==15435== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+==8680== Memcheck, a memory error detector
+==8680== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==8680== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==8680== Command: ./a.out images/bmps/05-sagan-stamp.bmp student-out-09_05-sagan-stamp.ee264
+==8680== Parent PID: 8679
+==8680== 
+--8680-- 
+--8680-- Valgrind options:
+--8680--    --tool=memcheck
+--8680--    --leak-check=full
+--8680--    --verbose
+--8680--    --log-file=memcheck-09.log
+--8680-- Contents of /proc/version:
+--8680--   Linux version 2.6.32-431.29.2.el6.x86_64 (mockbuild@x86-026.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Sun Jul 27 15:55:46 EDT 2014
+--8680-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--8680-- Page sizes: currently 4096, max supported 4096
+--8680-- Valgrind library directory: /usr/lib64/valgrind
+--8680-- Reading syms from /tmp/.O32BMa/a.out
+--8680-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--8680--    object doesn't have a dynamic symbol table
+--8680-- Reading syms from /lib64/ld-2.12.so
+--8680--   Considering /usr/lib/debug/.build-id/3b/fa45bce0e82e1d90d37a0cc8630f97f2003bf5.debug ..
+--8680--   .. build-id is valid
+--8680-- Scheduler: using generic scheduler lock implementation.
+--8680-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==8680== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8680-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==8680== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8680-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==8680== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8680-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==8680== 
+==8680== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8680== don't want to do, unless you know exactly what you're doing,
+==8680== or are doing some strange experiment):
+==8680==   /usr/lib64/valgrind/../../bin/vgdb --pid=8680 ...command...
+==8680== 
+==8680== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8680==   /path/to/gdb ./a.out
+==8680== and then give GDB the following command
+==8680==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=8680
+==8680== --pid is optional if only one valgrind process is running
+==8680== 
+--8680-- REDIR: 0x35ff417610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--8680-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--8680-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--8680-- REDIR: 0x35ff417480 (index) redirected to 0x4a07c30 (index)
+--8680-- REDIR: 0x35ff417500 (strcmp) redirected to 0x4a08570 (strcmp)
+--8680-- Reading syms from /lib64/libc-2.12.so
+--8680--   Considering /usr/lib/debug/.build-id/73/3ad3a438b5a695f7a63a77413f9b2c8c94e8e6.debug ..
+--8680--   .. build-id is valid
+--8680-- REDIR: 0x35ff884cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8680-- REDIR: 0x35ff886f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8680-- REDIR: 0x35ff882c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--8680-- REDIR: 0x35ff87f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8680-- REDIR: 0x35ff928420 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--8680-- REDIR: 0x35ff881120 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--8680-- REDIR: 0x35ff9336f0 (__strlen_sse42) redirected to 0x4a07f90 (strlen)
+--8680-- REDIR: 0x35ff88aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--8680-- REDIR: 0x35ff884500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--8680-- REDIR: 0x35ff87b520 (free) redirected to 0x4a063a9 (free)
+--8680-- REDIR: 0x35ff87a640 (malloc) redirected to 0x4a069ac (malloc)
+--8680-- REDIR: 0x35ff889670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--8680-- REDIR: 0x35ff881160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+==8680== 
+==8680== HEAP SUMMARY:
+==8680==     in use at exit: 0 bytes in 0 blocks
+==8680==   total heap usage: 7 allocs, 7 frees, 309,372 bytes allocated
+==8680== 
+==8680== All heap blocks were freed -- no leaks are possible
+==8680== 
+==8680== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--8680-- 
+--8680-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--8680-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==8680== 
+==8680== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
