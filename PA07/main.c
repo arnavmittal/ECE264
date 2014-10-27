@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <libgen.h>
-
 #include "answer07.h"
 
 void print_usage(char * argv0)
