@@ -1,0 +1,139 @@
+==27670== Memcheck, a memory error detector
+==27670== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==27670== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==27670== Command: ./a.out 23
+==27670== Parent PID: 27669
+==27670== 
+--27670-- 
+--27670-- Valgrind options:
+--27670--    --tool=memcheck
+--27670--    --leak-check=full
+--27670--    --verbose
+--27670--    --log-file=memcheck.log
+--27670-- Contents of /proc/version:
+--27670--   Linux version 2.6.32-431.29.2.el6.x86_64 (mockbuild@x86-026.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Sun Jul 27 15:55:46 EDT 2014
+--27670-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--27670-- Page sizes: currently 4096, max supported 4096
+--27670-- Valgrind library directory: /usr/lib64/valgrind
+--27670-- Reading syms from /tmp/.Nofitj/a.out
+--27670-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--27670--    object doesn't have a dynamic symbol table
+--27670-- Reading syms from /lib64/ld-2.12.so
+--27670--   Considering /usr/lib/debug/.build-id/3b/fa45bce0e82e1d90d37a0cc8630f97f2003bf5.debug ..
+--27670--   .. build-id is valid
+--27670-- Scheduler: using generic scheduler lock implementation.
+--27670-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==27670== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-27670-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==27670== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-27670-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==27670== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-27670-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==27670== 
+==27670== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==27670== don't want to do, unless you know exactly what you're doing,
+==27670== or are doing some strange experiment):
+==27670==   /usr/lib64/valgrind/../../bin/vgdb --pid=27670 ...command...
+==27670== 
+==27670== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==27670==   /path/to/gdb ./a.out
+==27670== and then give GDB the following command
+==27670==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=27670
+==27670== --pid is optional if only one valgrind process is running
+==27670== 
+--27670-- REDIR: 0x35ff417610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--27670-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--27670-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--27670-- REDIR: 0x35ff417480 (index) redirected to 0x4a07c30 (index)
+--27670-- REDIR: 0x35ff417500 (strcmp) redirected to 0x4a08570 (strcmp)
+--27670-- Reading syms from /lib64/libc-2.12.so
+--27670--   Considering /usr/lib/debug/.build-id/73/3ad3a438b5a695f7a63a77413f9b2c8c94e8e6.debug ..
+--27670--   .. build-id is valid
+--27670-- REDIR: 0x35ff884cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--27670-- REDIR: 0x35ff886f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--27670-- REDIR: 0x35ff882c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--27670-- REDIR: 0x35ff87a640 (malloc) redirected to 0x4a069ac (malloc)
+--27670-- REDIR: 0x35ff881160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--27670-- REDIR: 0x35ff889670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--27670-- REDIR: 0x35ff87f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--27670-- REDIR: 0x35ff928420 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+--27670-- REDIR: 0x35ff884500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--27670-- REDIR: 0x35ff88aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--27670-- REDIR: 0x35ff87b520 (free) redirected to 0x4a063a9 (free)
+==27670== 
+==27670== HEAP SUMMARY:
+==27670==     in use at exit: 137 bytes in 12 blocks
+==27670==   total heap usage: 29 allocs, 17 frees, 382 bytes allocated
+==27670== 
+==27670== Searching for pointers to 12 not-freed blocks
+==27670== Checked 64,888 bytes
+==27670== 
+==27670== 21 (16 direct, 5 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401229: make_list (test_support_functions.c:80)
+==27670==    by 0x401BFC: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== 21 (16 direct, 5 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401213: make_list (test_support_functions.c:79)
+==27670==    by 0x401C09: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== 22 (16 direct, 6 indirect) bytes in 1 blocks are definitely lost in loss record 9 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401229: make_list (test_support_functions.c:80)
+==27670==    by 0x401BFC: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== 23 (16 direct, 7 indirect) bytes in 1 blocks are definitely lost in loss record 10 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401229: make_list (test_support_functions.c:80)
+==27670==    by 0x401BFC: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== 25 (16 direct, 9 indirect) bytes in 1 blocks are definitely lost in loss record 11 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401229: make_list (test_support_functions.c:80)
+==27670==    by 0x401BFC: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== 25 (16 direct, 9 indirect) bytes in 1 blocks are definitely lost in loss record 12 of 12
+==27670==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==27670==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==27670==    by 0x400FE6: List_create (test_support_functions.c:48)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401003: List_create (test_support_functions.c:49)
+==27670==    by 0x401229: make_list (test_support_functions.c:80)
+==27670==    by 0x401BFC: tests_List_merge (test_List_merge.c:119)
+==27670==    by 0x402215: main (<stdin>:159)
+==27670== 
+==27670== LEAK SUMMARY:
+==27670==    definitely lost: 96 bytes in 6 blocks
+==27670==    indirectly lost: 41 bytes in 6 blocks
+==27670==      possibly lost: 0 bytes in 0 blocks
+==27670==    still reachable: 0 bytes in 0 blocks
+==27670==         suppressed: 0 bytes in 0 blocks
+==27670== 
+==27670== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 6 from 6)
+--27670-- 
+--27670-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--27670-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==27670== 
+==27670== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 6 from 6)

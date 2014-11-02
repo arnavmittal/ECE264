@@ -1,0 +1,118 @@
+==17287== Memcheck, a memory error detector
+==17287== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==17287== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==17287== Command: ./a.out 21
+==17287== Parent PID: 17278
+==17287== 
+--17287-- 
+--17287-- Valgrind options:
+--17287--    --tool=memcheck
+--17287--    --leak-check=full
+--17287--    --verbose
+--17287--    --log-file=memcheck.log
+--17287-- Contents of /proc/version:
+--17287--   Linux version 2.6.32-431.29.2.el6.x86_64 (mockbuild@x86-026.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Sun Jul 27 15:55:46 EDT 2014
+--17287-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--17287-- Page sizes: currently 4096, max supported 4096
+--17287-- Valgrind library directory: /usr/lib64/valgrind
+--17287-- Reading syms from /tmp/.Nofitj/a.out
+--17287-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--17287--    object doesn't have a dynamic symbol table
+--17287-- Reading syms from /lib64/ld-2.12.so
+--17287--   Considering /usr/lib/debug/.build-id/3b/fa45bce0e82e1d90d37a0cc8630f97f2003bf5.debug ..
+--17287--   .. build-id is valid
+--17287-- Scheduler: using generic scheduler lock implementation.
+--17287-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==17287== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-17287-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==17287== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-17287-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==17287== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-17287-by-mittal13-on-ecegrid-thin1.ecn.purdue.edu
+==17287== 
+==17287== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==17287== don't want to do, unless you know exactly what you're doing,
+==17287== or are doing some strange experiment):
+==17287==   /usr/lib64/valgrind/../../bin/vgdb --pid=17287 ...command...
+==17287== 
+==17287== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==17287==   /path/to/gdb ./a.out
+==17287== and then give GDB the following command
+==17287==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=17287
+==17287== --pid is optional if only one valgrind process is running
+==17287== 
+--17287-- REDIR: 0x35ff417610 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--17287-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--17287-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--17287-- REDIR: 0x35ff417480 (index) redirected to 0x4a07c30 (index)
+--17287-- REDIR: 0x35ff417500 (strcmp) redirected to 0x4a08570 (strcmp)
+--17287-- Reading syms from /lib64/libc-2.12.so
+--17287--   Considering /usr/lib/debug/.build-id/73/3ad3a438b5a695f7a63a77413f9b2c8c94e8e6.debug ..
+--17287--   .. build-id is valid
+--17287-- REDIR: 0x35ff884cd0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--17287-- REDIR: 0x35ff886f90 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--17287-- REDIR: 0x35ff882c40 (__GI_strrchr) redirected to 0x4a07ab0 (__GI_strrchr)
+--17287-- REDIR: 0x35ff87a640 (malloc) redirected to 0x4a069ac (malloc)
+--17287-- REDIR: 0x35ff881160 (__GI_strlen) redirected to 0x4a07fb0 (__GI_strlen)
+--17287-- REDIR: 0x35ff889670 (memcpy) redirected to 0x4a08b60 (memcpy)
+--17287-- REDIR: 0x35ff884500 (mempcpy) redirected to 0x4a0a020 (mempcpy)
+--17287-- REDIR: 0x35ff88aaf0 (strchrnul) redirected to 0x4a09fb0 (strchrnul)
+--17287-- REDIR: 0x35ff87b520 (free) redirected to 0x4a063a9 (free)
+--17287-- REDIR: 0x35ff87f6e0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--17287-- REDIR: 0x35ff928420 (__strcmp_sse42) redirected to 0x4a084d0 (strcmp)
+==17287== 
+==17287== HEAP SUMMARY:
+==17287==     in use at exit: 149 bytes in 16 blocks
+==17287==   total heap usage: 37 allocs, 21 frees, 406 bytes allocated
+==17287== 
+==17287== Searching for pointers to 16 not-freed blocks
+==17287== Checked 64,888 bytes
+==17287== 
+==17287== 18 (16 direct, 2 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 16
+==17287==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==17287==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==17287==    by 0x400FE6: List_create (test_support_functions.c:48)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x4011E7: make_list (test_support_functions.c:77)
+==17287==    by 0x401BB4: tests_List_merge (test_List_merge.c:116)
+==17287==    by 0x402215: main (<stdin>:159)
+==17287== 
+==17287== 18 (16 direct, 2 indirect) bytes in 1 blocks are definitely lost in loss record 14 of 16
+==17287==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==17287==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==17287==    by 0x400FE6: List_create (test_support_functions.c:48)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x4011E7: make_list (test_support_functions.c:77)
+==17287==    by 0x401BB4: tests_List_merge (test_List_merge.c:116)
+==17287==    by 0x402215: main (<stdin>:159)
+==17287== 
+==17287== 18 (16 direct, 2 indirect) bytes in 1 blocks are definitely lost in loss record 15 of 16
+==17287==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==17287==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==17287==    by 0x400FE6: List_create (test_support_functions.c:48)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x401003: List_create (test_support_functions.c:49)
+==17287==    by 0x4011E7: make_list (test_support_functions.c:77)
+==17287==    by 0x401BB4: tests_List_merge (test_List_merge.c:116)
+==17287==    by 0x402215: main (<stdin>:159)
+==17287== 
+==17287== 95 (16 direct, 79 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 16
+==17287==    at 0x4A06A2E: malloc (vg_replace_malloc.c:270)
+==17287==    by 0x400BA9: List_createNode_sol (<stdin>:19)
+==17287==    by 0x400FE6: List_create (test_support_functions.c:48)
+==17287==    by 0x4011FD: make_list (test_support_functions.c:78)
+==17287==    by 0x401BA7: tests_List_merge (test_List_merge.c:116)
+==17287==    by 0x402215: main (<stdin>:159)
+==17287== 
+==17287== LEAK SUMMARY:
+==17287==    definitely lost: 64 bytes in 4 blocks
+==17287==    indirectly lost: 85 bytes in 12 blocks
+==17287==      possibly lost: 0 bytes in 0 blocks
+==17287==    still reachable: 0 bytes in 0 blocks
+==17287==         suppressed: 0 bytes in 0 blocks
+==17287== 
+==17287== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)
+--17287-- 
+--17287-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--17287-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==17287== 
+==17287== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 6 from 6)
