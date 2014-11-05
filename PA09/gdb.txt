@@ -1,0 +1,46 @@
+Breakpoint 1 at 0x400b90: file answer09.c, line 126.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA09/pa09 
+
+Breakpoint 1, load_tree_from_file (filename=0x400d98 "randomtest.tsv") at answer09.c:126
+warning: Source file is more recent than executable.
+126	    fclose(fp);
+Kill the program being debugged? (y or n) Breakpoint 2 at 0x400b7e: file answer09.c, line 124.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA09/pa09 
+
+Breakpoint 2, load_tree_from_file (filename=0x400d98 "randomtest.tsv") at answer09.c:124
+124	    }
+112	        string = fgets(string, 2000, fp);
+113	        if(feof(fp))
+Kill the program being debugged? (y or n) Breakpoint 3 at 0x400b84: file answer09.c, line 125.
+No breakpoint number 1.
+Undefined command: "d1".  Try "help".
+No breakpoint number 1.
+The program is not being run.
+Note: breakpoint 3 also set at pc 0x400b84.
+Breakpoint 4 at 0x400b84: file answer09.c, line 125.
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA09/pa09 
+
+Breakpoint 3, load_tree_from_file (filename=0x400d98 "randomtest.tsv") at answer09.c:125
+125	    free(string);
+126	    fclose(fp);
+127	    return(root);
+128	}
+main () at pa09.c:8
+8		destroy_tree(root);
+9		return(0);
+10	}
+__libc_start_main (main=0x400754 <main>, argc=1, ubp_av=0x7fffffffe3b8, init=<value optimized out>, 
+    fini=<value optimized out>, rtld_fini=<value optimized out>, stack_end=0x7fffffffe3a8) at libc-start.c:258
+258	  exit (result);
+The program being debugged has been started already.
+Start it from the beginning? (y or n) 
+Starting program: /home/shay/a/mittal13/ECE264/solutions/ECE264Homework/PA09/pa09 
+
+Breakpoint 3, load_tree_from_file (filename=0x400d98 "randomtest.tsv") at answer09.c:125
+125	    free(string);
+1: string = 0x0
+A debugging session is active.
+
+	Inferior 1 [process 27620] will be killed.
+
+Quit anyway? (y or n) 
